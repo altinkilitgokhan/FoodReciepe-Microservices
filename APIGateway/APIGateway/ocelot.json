@@ -1,46 +1,42 @@
 {
-   "Routes": [
-      {
-         "DownstreamPathTemplate": "/api/products",
-         "DownstreamScheme": "https",
-         "DownstreamHostAndPorts": [
-             {
-                 "Host": "localhost",
-                 "Port": 1000
-             }
-         ],
-         "UpstreamPathTemplate": "/api/products",
-         "UpstreamHttpMethod": [ "Get" ],
-         "AuthenticationOptions": {
-            "AuthenticationProviderKey": "TestKey",
-            "AllowedScopes": []
-          }
-      },
-      {
-         "DownstreamPathTemplate": "/api/customers",
-         "DownstreamScheme": "https",
-         "DownstreamHostAndPorts": [
-             {
-                 "Host": "localhost",
-                 "Port": 2000
-             }
-         ],
-         "UpstreamPathTemplate": "/api/customers",
-         "UpstreamHttpMethod": [ "Get" ]
-      },
-      {
-         "DownstreamPathTemplate": "/api/auths",
-         "DownstreamScheme": "https",
-         "DownstreamHostAndPorts": [
-             {
-                 "Host": "localhost",
-                 "Port": 3000
-             }
-         ],
-         "UpstreamPathTemplate": "/api/auths",
-         "UpstreamHttpMethod": [ "Get" ]
-      }
-   ],
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/Users",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5210
+                }
+            ],
+            "UpstreamPathTemplate": "/iam",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+        },
+        {
+            "DownstreamPathTemplate": "/Users/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5210
+                }
+            ],
+            "UpstreamPathTemplate": "/iam/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+        },
+        {
+            "DownstreamPathTemplate": "/Users/register",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5210
+                }
+            ],
+            "UpstreamPathTemplate": "/iam/register",
+            "UpstreamHttpMethod": [ "Post" ]
+        }
+    ],
    "GlobalConfiguration": {
        "BaseUrl": "https://localhost:4000"
    }
